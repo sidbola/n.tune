@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="CircleButton">
+        <attr name="isHighlighted" format="boolean" />
+    </declare-styleable>
+</resources>

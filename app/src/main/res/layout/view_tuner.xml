@@ -1,0 +1,21 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.sidbola.ntune.ui.view.NotesDisplay
+        android:id="@+id/nd_current_notes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <com.sidbola.ntune.ui.view.PitchDisplay
+        android:id="@+id/pd_current_pitch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <com.sidbola.ntune.ui.view.PitchDeviation
+        android:id="@+id/pdv_pitch_deviation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+</merge>
