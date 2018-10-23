@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/guitar"
+        android:title="Guitar"/>
+    <item android:id="@+id/Bass"
+        android:title="Bass"/>
+    <item android:id="@+id/Violin"
+        android:title="Violin"/>
+    <item android:id="@+id/Cello"
+        android:title="Cello"/>
+</menu>

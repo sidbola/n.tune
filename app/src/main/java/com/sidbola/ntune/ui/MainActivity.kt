@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.view.WindowManager
 import android.widget.Toast
 import be.tarsos.dsp.AudioDispatcher
 import be.tarsos.dsp.io.android.AudioDispatcherFactory
@@ -13,9 +14,10 @@ import be.tarsos.dsp.pitch.PitchProcessor
 import kotlinx.android.synthetic.main.activity_main.*
 import be.tarsos.dsp.pitch.PitchProcessor.PitchEstimationAlgorithm
 import com.sidbola.ntune.R
+import com.sidbola.ntune.data.Tuning
+import com.sidbola.ntune.ui.view.AnimatedMenu
 import kotlinx.coroutines.experimental.GlobalScope
 import kotlinx.coroutines.experimental.launch
-import kotlin.math.roundToInt
 
 const val RECORD_AUDIO_PERMISSION_REQUEST_CODE = 1384
 
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         if (hasPermissionToRecord()){
             initializeTuner()
@@ -39,6 +42,13 @@ class MainActivity : AppCompatActivity() {
                 RECORD_AUDIO_PERMISSION_REQUEST_CODE
             )
         }
+
+
+        instrument_menu.setTuningSelectedListener(object: AnimatedMenu.OnTuningSelected {
+            override fun onTuningSelected(tuning: Tuning) {
+                td_main_tuner.updateTuning(tuning)
+            }
+        })
     }
 
     private fun hasPermissionToRecord(): Boolean{
@@ -52,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         pitchDetectionHandler = PitchDetectionHandler { pitchDetectionResult, _ ->
             this.pitch = pitchDetectionResult.pitch
             delay++
-            if (delay > 5){
+            if (delay > 9){
                 delay = 0
                 runOnUiThread {
                     td_main_tuner.updateFrequency(pitch)
@@ -62,6 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         pitchProcessor = PitchProcessor(PitchEstimationAlgorithm.FFT_YIN, 22050f, 1024, pitchDetectionHandler)
         dispatcher.addAudioProcessor(pitchProcessor)
+
 
         GlobalScope.launch {
             dispatcher.run()

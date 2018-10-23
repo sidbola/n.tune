@@ -1,0 +1,542 @@
+[
+  {
+    "name": "C_0",
+    "simplifiedName": "C",
+    "frequency": 16.35
+  },
+  {
+    "name": "C_1",
+    "simplifiedName": "C",
+    "frequency": 32.7
+  },
+  {
+    "name": "C_2",
+    "simplifiedName": "C",
+    "frequency": 65.4
+  },
+  {
+    "name": "C_3",
+    "simplifiedName": "C",
+    "frequency": 130.8
+  },
+  {
+    "name": "C_4",
+    "simplifiedName": "C",
+    "frequency": 261.6
+  },
+  {
+    "name": "C_5",
+    "simplifiedName": "C",
+    "frequency": 523.2
+  },
+  {
+    "name": "C_6",
+    "simplifiedName": "C",
+    "frequency": 1046.4
+  },
+  {
+    "name": "C_7",
+    "simplifiedName": "C",
+    "frequency": 2092.8
+  },
+  {
+    "name": "C_8",
+    "simplifiedName": "C",
+    "frequency": 4185.6
+  },
+  {
+    "name": "C_SHARP_0",
+    "simplifiedName": "C#",
+    "frequency": 17.32
+  },
+  {
+    "name": "C_SHARP_1",
+    "simplifiedName": "C#",
+    "frequency": 34.64
+  },
+  {
+    "name": "C_SHARP_2",
+    "simplifiedName": "C#",
+    "frequency": 69.28
+  },
+  {
+    "name": "C_SHARP_3",
+    "simplifiedName": "C#",
+    "frequency": 138.56
+  },
+  {
+    "name": "C_SHARP_4",
+    "simplifiedName": "C#",
+    "frequency": 277.12
+  },
+  {
+    "name": "C_SHARP_5",
+    "simplifiedName": "C#",
+    "frequency": 554.24
+  },
+  {
+    "name": "C_SHARP_6",
+    "simplifiedName": "C#",
+    "frequency": 1108.48
+  },
+  {
+    "name": "C_SHARP_7",
+    "simplifiedName": "C#",
+    "frequency": 2216.96
+  },
+  {
+    "name": "C_SHARP_8",
+    "simplifiedName": "C#",
+    "frequency": 4433.92
+  },
+  {
+    "name": "D_0",
+    "simplifiedName": "D",
+    "frequency": 18.35
+  },
+  {
+    "name": "D_1",
+    "simplifiedName": "D",
+    "frequency": 36.7
+  },
+  {
+    "name": "D_2",
+    "simplifiedName": "D",
+    "frequency": 73.4
+  },
+  {
+    "name": "D_3",
+    "simplifiedName": "D",
+    "frequency": 146.8
+  },
+  {
+    "name": "D_4",
+    "simplifiedName": "D",
+    "frequency": 293.6
+  },
+  {
+    "name": "D_5",
+    "simplifiedName": "D",
+    "frequency": 587.2
+  },
+  {
+    "name": "D_6",
+    "simplifiedName": "D",
+    "frequency": 1174.4
+  },
+  {
+    "name": "D_7",
+    "simplifiedName": "D",
+    "frequency": 2348.8
+  },
+  {
+    "name": "D_8",
+    "simplifiedName": "D",
+    "frequency": 4697.6
+  },
+  {
+    "name": "E_FLAT_0",
+    "simplifiedName": "E♭",
+    "frequency": 19.45
+  },
+  {
+    "name": "E_FLAT_1",
+    "simplifiedName": "E♭",
+    "frequency": 38.9
+  },
+  {
+    "name": "E_FLAT_2",
+    "simplifiedName": "E♭",
+    "frequency": 77.8
+  },
+  {
+    "name": "E_FLAT_3",
+    "simplifiedName": "E♭",
+    "frequency": 155.6
+  },
+  {
+    "name": "E_FLAT_4",
+    "simplifiedName": "E♭",
+    "frequency": 311.2
+  },
+  {
+    "name": "E_FLAT_5",
+    "simplifiedName": "E♭",
+    "frequency": 622.4
+  },
+  {
+    "name": "E_FLAT_6",
+    "simplifiedName": "E♭",
+    "frequency": 1244.8
+  },
+  {
+    "name": "E_FLAT_7",
+    "simplifiedName": "E♭",
+    "frequency": 2489.6
+  },
+  {
+    "name": "E_FLAT_8",
+    "simplifiedName": "E♭",
+    "frequency": 4979.2
+  },
+  {
+    "name": "E_0",
+    "simplifiedName": "E",
+    "frequency": 20.6
+  },
+  {
+    "name": "E_1",
+    "simplifiedName": "E",
+    "frequency": 41.2
+  },
+  {
+    "name": "E_2",
+    "simplifiedName": "E",
+    "frequency": 82.4
+  },
+  {
+    "name": "E_3",
+    "simplifiedName": "E",
+    "frequency": 164.8
+  },
+  {
+    "name": "E_4",
+    "simplifiedName": "E",
+    "frequency": 329.6
+  },
+  {
+    "name": "E_5",
+    "simplifiedName": "E",
+    "frequency": 659.2
+  },
+  {
+    "name": "E_6",
+    "simplifiedName": "E",
+    "frequency": 1318.4
+  },
+  {
+    "name": "E_7",
+    "simplifiedName": "E",
+    "frequency": 2636.8
+  },
+  {
+    "name": "E_8",
+    "simplifiedName": "E",
+    "frequency": 5273.6
+  },
+  {
+    "name": "F_0",
+    "simplifiedName": "F",
+    "frequency": 21.83
+  },
+  {
+    "name": "F_1",
+    "simplifiedName": "F",
+    "frequency": 43.66
+  },
+  {
+    "name": "F_2",
+    "simplifiedName": "F",
+    "frequency": 87.32
+  },
+  {
+    "name": "F_3",
+    "simplifiedName": "F",
+    "frequency": 174.64
+  },
+  {
+    "name": "F_4",
+    "simplifiedName": "F",
+    "frequency": 349.28
+  },
+  {
+    "name": "F_5",
+    "simplifiedName": "F",
+    "frequency": 698.56
+  },
+  {
+    "name": "F_6",
+    "simplifiedName": "F",
+    "frequency": 1397.12
+  },
+  {
+    "name": "F_7",
+    "simplifiedName": "F",
+    "frequency": 2794.24
+  },
+  {
+    "name": "F_8",
+    "simplifiedName": "F",
+    "frequency": 5588.48
+  },
+  {
+    "name": "F_SHARP_0",
+    "simplifiedName": "F#",
+    "frequency": 23.12
+  },
+  {
+    "name": "F_SHARP_1",
+    "simplifiedName": "F#",
+    "frequency": 46.24
+  },
+  {
+    "name": "F_SHARP_2",
+    "simplifiedName": "F#",
+    "frequency": 92.48
+  },
+  {
+    "name": "F_SHARP_3",
+    "simplifiedName": "F#",
+    "frequency": 184.96
+  },
+  {
+    "name": "F_SHARP_4",
+    "simplifiedName": "F#",
+    "frequency": 369.92
+  },
+  {
+    "name": "F_SHARP_5",
+    "simplifiedName": "F#",
+    "frequency": 739.84
+  },
+  {
+    "name": "F_SHARP_6",
+    "simplifiedName": "F#",
+    "frequency": 1479.68
+  },
+  {
+    "name": "F_SHARP_7",
+    "simplifiedName": "F#",
+    "frequency": 2959.36
+  },
+  {
+    "name": "F_SHARP_8",
+    "simplifiedName": "F#",
+    "frequency": 5918.72
+  },
+  {
+    "name": "G_0",
+    "simplifiedName": "G",
+    "frequency": 24.5
+  },
+  {
+    "name": "G_1",
+    "simplifiedName": "G",
+    "frequency": 49.0
+  },
+  {
+    "name": "G_2",
+    "simplifiedName": "G",
+    "frequency": 98.0
+  },
+  {
+    "name": "G_3",
+    "simplifiedName": "G",
+    "frequency": 196.0
+  },
+  {
+    "name": "G_4",
+    "simplifiedName": "G",
+    "frequency": 392.0
+  },
+  {
+    "name": "G_5",
+    "simplifiedName": "G",
+    "frequency": 784.0
+  },
+  {
+    "name": "G_6",
+    "simplifiedName": "G",
+    "frequency": 1568.0
+  },
+  {
+    "name": "G_7",
+    "simplifiedName": "G",
+    "frequency": 3136.0
+  },
+  {
+    "name": "G_8",
+    "simplifiedName": "G",
+    "frequency": 6272.0
+  },
+  {
+    "name": "G_SHARP_0",
+    "simplifiedName": "G#",
+    "frequency": 25.96
+  },
+  {
+    "name": "G_SHARP_1",
+    "simplifiedName": "G#",
+    "frequency": 51.92
+  },
+  {
+    "name": "G_SHARP_2",
+    "simplifiedName": "G#",
+    "frequency": 103.84
+  },
+  {
+    "name": "G_SHARP_3",
+    "simplifiedName": "G#",
+    "frequency": 207.68
+  },
+  {
+    "name": "G_SHARP_4",
+    "simplifiedName": "G#",
+    "frequency": 415.36
+  },
+  {
+    "name": "G_SHARP_5",
+    "simplifiedName": "G#",
+    "frequency": 830.72
+  },
+  {
+    "name": "G_SHARP_6",
+    "simplifiedName": "G#",
+    "frequency": 1661.44
+  },
+  {
+    "name": "G_SHARP_7",
+    "simplifiedName": "G#",
+    "frequency": 3322.88
+  },
+  {
+    "name": "G_SHARP_8",
+    "simplifiedName": "G#",
+    "frequency": 6645.76
+  },
+  {
+    "name": "A_0",
+    "simplifiedName": "A",
+    "frequency": 27.5
+  },
+  {
+    "name": "A_1",
+    "simplifiedName": "A",
+    "frequency": 55.0
+  },
+  {
+    "name": "A_2",
+    "simplifiedName": "A",
+    "frequency": 110.0
+  },
+  {
+    "name": "A_3",
+    "simplifiedName": "A",
+    "frequency": 220.0
+  },
+  {
+    "name": "A_4",
+    "simplifiedName": "A",
+    "frequency": 440.0
+  },
+  {
+    "name": "A_5",
+    "simplifiedName": "A",
+    "frequency": 880.0
+  },
+  {
+    "name": "A_6",
+    "simplifiedName": "A",
+    "frequency": 1760.0
+  },
+  {
+    "name": "A_7",
+    "simplifiedName": "A",
+    "frequency": 3520.0
+  },
+  {
+    "name": "A_8",
+    "simplifiedName": "A",
+    "frequency": 7040.0
+  },
+  {
+    "name": "B_FLAT_0",
+    "simplifiedName": "B♭",
+    "frequency": 29.14
+  },
+  {
+    "name": "B_FLAT_1",
+    "simplifiedName": "B♭",
+    "frequency": 58.28
+  },
+  {
+    "name": "B_FLAT_2",
+    "simplifiedName": "B♭",
+    "frequency": 116.56
+  },
+  {
+    "name": "B_FLAT_3",
+    "simplifiedName": "B♭",
+    "frequency": 233.12
+  },
+  {
+    "name": "B_FLAT_4",
+    "simplifiedName": "B♭",
+    "frequency": 466.24
+  },
+  {
+    "name": "B_FLAT_5",
+    "simplifiedName": "B♭",
+    "frequency": 932.48
+  },
+  {
+    "name": "B_FLAT_6",
+    "simplifiedName": "B♭",
+    "frequency": 1864.96
+  },
+  {
+    "name": "B_FLAT_7",
+    "simplifiedName": "B♭",
+    "frequency": 3729.92
+  },
+  {
+    "name": "B_FLAT_8",
+    "simplifiedName": "B♭",
+    "frequency": 7459.84
+  },
+  {
+    "name": "B_0",
+    "simplifiedName": "B",
+    "frequency": 30.87
+  },
+  {
+    "name": "B_1",
+    "simplifiedName": "B",
+    "frequency": 61.74
+  },
+  {
+    "name": "B_2",
+    "simplifiedName": "B",
+    "frequency": 123.48
+  },
+  {
+    "name": "B_3",
+    "simplifiedName": "B",
+    "frequency": 246.96
+  },
+  {
+    "name": "B_4",
+    "simplifiedName": "B",
+    "frequency": 493.92
+  },
+  {
+    "name": "B_5",
+    "simplifiedName": "B",
+    "frequency": 987.84
+  },
+  {
+    "name": "B_6",
+    "simplifiedName": "B",
+    "frequency": 1975.68
+  },
+  {
+    "name": "B_7",
+    "simplifiedName": "B",
+    "frequency": 3951.36
+  },
+  {
+    "name": "B_8",
+    "simplifiedName": "B",
+    "frequency": 7902.72
+  }
+]

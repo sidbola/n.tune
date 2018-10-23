@@ -9,10 +9,7 @@ import android.support.v4.content.res.ResourcesCompat
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.widget.Toast
 import com.sidbola.ntune.R
-import com.sidbola.ntune.model.Instrument
-import com.sidbola.ntune.model.NotePitchInfo
 
 class PitchDisplay(context: Context, attrs: AttributeSet): View(context, attrs) {
 
@@ -82,9 +79,9 @@ class PitchDisplay(context: Context, attrs: AttributeSet): View(context, attrs) 
 
         // Paint numbering
         textPaintLine.textSize = height/8f
-        canvas?.drawText("-50",height/8f, height/8f, textPaintLine)
+        canvas?.drawText("-20",height/8f, height/8f, textPaintLine)
         canvas?.drawText("0",width/2f, height/8f, textPaintLine)
-        canvas?.drawText("+50",width - (height/8f), height/8f, textPaintLine)
+        canvas?.drawText("+20",width - (height/8f), height/8f, textPaintLine)
 
         if (frequency != -1f){
             canvas?.drawLine(currentLineX,highLineY,currentLineX,allLinesY,currentPaintLine)
@@ -106,11 +103,18 @@ class PitchDisplay(context: Context, attrs: AttributeSet): View(context, attrs) 
         this.frequency = currentFrequency
         this.targetFrequency = targetFrequency
 
+        val unitLength = width/40
+        val bottomEnd = targetFrequency - 20
+
+        val translatedCurFreq = currentFrequency - bottomEnd
+        currentLineFutureX = translatedCurFreq * unitLength
+
+        /*
         val ratio = (width/2)/targetFrequency
-
         currentLineFutureX = currentFrequency * ratio
-        animateCursor()
+        */
 
+        animateCursor()
 
         invalidate()
         requestLayout()

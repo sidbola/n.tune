@@ -2,16 +2,16 @@ package com.sidbola.ntune.ui.view
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.Gravity
 import android.widget.LinearLayout
 import com.sidbola.ntune.R
-import com.sidbola.ntune.model.Instrument
-import com.sidbola.ntune.model.NotePitchInfo
+import com.sidbola.ntune.data.Instrument
+import com.sidbola.ntune.data.Tuning
 import kotlin.math.abs
-import kotlin.math.roundToInt
 
 class TunerDisplay(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
-    private var instrument: Instrument
+    private var tuning: Tuning
     private val notesDisplay: NotesDisplay
     private val pitchDisplay: PitchDisplay
     private val pitchDeviation: PitchDeviation
@@ -20,13 +20,13 @@ class TunerDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
     init {
         inflate(getContext(), R.layout.view_tuner, this)
 
-        instrument = Instrument.GUITAR
+        tuning = Instrument.GUITAR.availableTunings[0]
         frequency = 0f
         notesDisplay = findViewById(R.id.nd_current_notes)
         pitchDisplay = findViewById(R.id.pd_current_pitch)
         pitchDeviation = findViewById(R.id.pdv_pitch_deviation)
 
-        notesDisplay.setInstrumentNoteInfo(instrument)
+        notesDisplay.setTuningNoteInfo(tuning)
 
         val params0 = LinearLayout.LayoutParams(
             LayoutParams.WRAP_CONTENT,
@@ -63,33 +63,48 @@ class TunerDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
 
     }
 
+    fun initialize(){
+
+    }
+
 
     fun updateFrequency(freq: Float){
-        val closestNote = getClosestNote()
-
         frequency = freq
-        pitchDeviation.updateInfo(freq, closestNote.freq)
-        pitchDisplay.updateDisplay(freq, closestNote.freq)
-        if (freq != -1f) notesDisplay.setActiveNote(closestNote.index - 1)
+
+        val closestNoteIndex = getClosestNote()
+
+        pitchDeviation.updateInfo(freq, tuning.notes[closestNoteIndex].frequency)
+        pitchDisplay.updateDisplay(freq, tuning.notes[closestNoteIndex].frequency)
+        if (freq != -1f) notesDisplay.setActiveNote(closestNoteIndex - 1)
         else notesDisplay.deselectButtons(null)
 
         invalidate()
         requestLayout()
     }
 
+    fun updateTuning(newTuning: Tuning){
+        tuning = newTuning
 
-    private fun getClosestNote(): NotePitchInfo{
-        var closest = Float.MAX_VALUE
+        notesDisplay.setTuningNoteInfo(tuning)
+
+
+        invalidate()
+        requestLayout()
+    }
+
+
+    private fun getClosestNote(): Int {
+        var closest = 8000f
         var targetIndex = 0
-        val notes = instrument.getNotePitchFrequencies()
+        val notes = tuning.notes
         for (i in 0 until notes.size){
-            if (abs(notes[i].freq - frequency) < closest){
-                closest = abs(notes[i].freq - frequency)
+            if (abs(notes[i].frequency - frequency) < closest){
+                closest = abs(notes[i].frequency - frequency)
                 targetIndex = i
             }
         }
 
-        return notes[targetIndex]
+        return targetIndex
     }
 
 }

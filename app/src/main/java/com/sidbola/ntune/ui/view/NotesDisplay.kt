@@ -3,14 +3,14 @@ package com.sidbola.ntune.ui.view
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
-import com.sidbola.ntune.model.Instrument
-import com.sidbola.ntune.model.NotePitchInfo
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.sidbola.ntune.R
+import com.sidbola.ntune.data.Note
+import com.sidbola.ntune.data.Tuning
 
 class NotesDisplay(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
-    private var instrumentNoteInfo: Array<NotePitchInfo>?
+    private var tuningNoteInfo: Array<Note>?
     private var buttons: Array<CircleButton?>?
     private var buttonLayoutParams: LayoutParams
     private val buttonLinearLayout: LinearLayout
@@ -18,7 +18,7 @@ class NotesDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
 
     init {
         inflate(getContext(), R.layout.view_notes_display, this)
-        instrumentNoteInfo = null
+        tuningNoteInfo = null
         buttonLinearLayout = findViewById(R.id.ll_button_holder)
         hertzTextView = findViewById(R.id.tv_hertz)
         hertzTextView.text = "0 Hz"
@@ -31,23 +31,26 @@ class NotesDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun setupView(){
-        buttons = arrayOfNulls(instrumentNoteInfo!!.size)
+        buttons = arrayOfNulls(tuningNoteInfo!!.size)
 
         orientation = LinearLayout.VERTICAL
         gravity = Gravity.CENTER
         weightSum = buttons!!.size.toFloat()
 
-        for (i in 0 until instrumentNoteInfo!!.size){
+        for (i in 0 until tuningNoteInfo!!.size){
             val button = CircleButton(context)
-            button.text = instrumentNoteInfo!![i].note
+            button.text = tuningNoteInfo!![i].noteName
             button.layoutParams = buttonLayoutParams
             buttonLinearLayout.addView(button)
             buttons!![i] = button
         }
     }
 
-    fun setInstrumentNoteInfo(instrument: Instrument){
-        instrumentNoteInfo = instrument.getNotePitchFrequencies()
+    fun setTuningNoteInfo(tuning: Tuning){
+        if (buttonLinearLayout.childCount > 0){
+            buttonLinearLayout.removeAllViews()
+        }
+        tuningNoteInfo = tuning.notes
         setupView()
     }
 
@@ -66,9 +69,12 @@ class NotesDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun selectNote(noteIndex: Int){
-        deselectButtons(buttons!![noteIndex]!!)
-        buttons!![noteIndex]?.setHighlighted(true)
-        hertzTextView.text = instrumentNoteInfo!![noteIndex].freq.toString() + " Hz"
+        if (noteIndex != -1){
+            deselectButtons(buttons!![noteIndex]!!)
+            buttons!![noteIndex]?.setHighlighted(true)
+            hertzTextView.text = tuningNoteInfo!![noteIndex].frequency.toString() + " Hz"
+        }
+
     }
 
 
