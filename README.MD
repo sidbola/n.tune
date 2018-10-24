@@ -22,6 +22,4 @@ All views in the app are custom views created specifically for this application.
 The app makes use of the [TarsosDSP Audio Library](https://github.com/JorenSix/TarsosDSP) for reading in and processing the audio by applying the [Fast Fourier Transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform) algorithm to calculate note frequencies.
 
 ## Screenshots
-<p align="center">
 ![Preview of Animated Menu](https://media.giphy.com/media/9SIO6XmjB9O1LK0vjL/giphy.gif)
-</p>
