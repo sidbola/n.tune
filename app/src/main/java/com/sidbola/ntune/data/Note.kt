@@ -59,55 +59,55 @@ enum class Note {
         override val frequency: Float
             get() = 17.32f
         override val noteName: String
-            get() = "C_SHARP"
+            get() = "C#"
     },
     C_SHARP_1 {
         override val frequency: Float
             get() = 34.64f
         override val noteName: String
-            get() = "C_SHARP"
+            get() = "C#"
     },
     C_SHARP_2 {
         override val frequency: Float
             get() = 69.28f
         override val noteName: String
-            get() = "C_SHARP"
+            get() = "C#"
     },
     C_SHARP_3 {
         override val frequency: Float
             get() = 138.56f
         override val noteName: String
-            get() = "C_SHARP"
+            get() = "C#"
     },
     C_SHARP_4 {
         override val frequency: Float
             get() = 277.12f
         override val noteName: String
-            get() = "C_SHARP"
+            get() = "C#"
     },
     C_SHARP_5 {
         override val frequency: Float
             get() = 554.24f
         override val noteName: String
-            get() = "C_SHARP"
+            get() = "C#"
     },
     C_SHARP_6 {
         override val frequency: Float
             get() = 1108.48f
         override val noteName: String
-            get() = "C_SHARP"
+            get() = "C#"
     },
     C_SHARP_7 {
         override val frequency: Float
             get() = 2216.96f
         override val noteName: String
-            get() = "C_SHARP"
+            get() = "C#"
     },
     C_SHARP_8 {
         override val frequency: Float
             get() = 4433.92f
         override val noteName: String
-            get() = "C_SHARP"
+            get() = "C#"
     },
     D_0 {
         override val frequency: Float
@@ -167,55 +167,55 @@ enum class Note {
         override val frequency: Float
             get() = 19.45f
         override val noteName: String
-            get() = "E_FLAT"
+            get() = "E♭"
     },
     E_FLAT_1 {
         override val frequency: Float
             get() = 38.9f
         override val noteName: String
-            get() = "E_FLAT"
+            get() = "E♭"
     },
     E_FLAT_2 {
         override val frequency: Float
             get() = 77.8f
         override val noteName: String
-            get() = "E_FLAT"
+            get() = "E♭"
     },
     E_FLAT_3 {
         override val frequency: Float
             get() = 155.6f
         override val noteName: String
-            get() = "E_FLAT"
+            get() = "E♭"
     },
     E_FLAT_4 {
         override val frequency: Float
             get() = 311.2f
         override val noteName: String
-            get() = "E_FLAT"
+            get() = "E♭"
     },
     E_FLAT_5 {
         override val frequency: Float
             get() = 622.4f
         override val noteName: String
-            get() = "E_FLAT"
+            get() = "E♭"
     },
     E_FLAT_6 {
         override val frequency: Float
             get() = 1244.8f
         override val noteName: String
-            get() = "E_FLAT"
+            get() = "E♭"
     },
     E_FLAT_7 {
         override val frequency: Float
             get() = 2489.6f
         override val noteName: String
-            get() = "E_FLAT"
+            get() = "E♭"
     },
     E_FLAT_8 {
         override val frequency: Float
             get() = 4979.2f
         override val noteName: String
-            get() = "E_FLAT"
+            get() = "E♭"
     },
     E_0 {
         override val frequency: Float
@@ -329,55 +329,55 @@ enum class Note {
         override val frequency: Float
             get() = 23.12f
         override val noteName: String
-            get() = "F_SHARP"
+            get() = "F#"
     },
     F_SHARP_1 {
         override val frequency: Float
             get() = 46.24f
         override val noteName: String
-            get() = "F_SHARP"
+            get() = "F#"
     },
     F_SHARP_2 {
         override val frequency: Float
             get() = 92.48f
         override val noteName: String
-            get() = "F_SHARP"
+            get() = "F#"
     },
     F_SHARP_3 {
         override val frequency: Float
             get() = 184.96f
         override val noteName: String
-            get() = "F_SHARP"
+            get() = "F#"
     },
     F_SHARP_4 {
         override val frequency: Float
             get() = 369.92f
         override val noteName: String
-            get() = "F_SHARP"
+            get() = "F#"
     },
     F_SHARP_5 {
         override val frequency: Float
             get() = 739.84f
         override val noteName: String
-            get() = "F_SHARP"
+            get() = "F#"
     },
     F_SHARP_6 {
         override val frequency: Float
             get() = 1479.68f
         override val noteName: String
-            get() = "F_SHARP"
+            get() = "F#"
     },
     F_SHARP_7 {
         override val frequency: Float
             get() = 2959.36f
         override val noteName: String
-            get() = "F_SHARP"
+            get() = "F#"
     },
     F_SHARP_8 {
         override val frequency: Float
             get() = 5918.72f
         override val noteName: String
-            get() = "F_SHARP"
+            get() = "F#"
     },
     G_0 {
         override val frequency: Float
@@ -437,55 +437,55 @@ enum class Note {
         override val frequency: Float
             get() = 25.96f
         override val noteName: String
-            get() = "G_SHARP"
+            get() = "G#"
     },
     G_SHARP_1 {
         override val frequency: Float
             get() = 51.92f
         override val noteName: String
-            get() = "G_SHARP"
+            get() = "G#"
     },
     G_SHARP_2 {
         override val frequency: Float
             get() = 103.84f
         override val noteName: String
-            get() = "G_SHARP"
+            get() = "G#"
     },
     G_SHARP_3 {
         override val frequency: Float
             get() = 207.68f
         override val noteName: String
-            get() = "G_SHARP"
+            get() = "G#"
     },
     G_SHARP_4 {
         override val frequency: Float
             get() = 415.36f
         override val noteName: String
-            get() = "G_SHARP"
+            get() = "G#"
     },
     G_SHARP_5 {
         override val frequency: Float
             get() = 830.72f
         override val noteName: String
-            get() = "G_SHARP"
+            get() = "G#"
     },
     G_SHARP_6 {
         override val frequency: Float
             get() = 1661.44f
         override val noteName: String
-            get() = "G_SHARP"
+            get() = "G#"
     },
     G_SHARP_7 {
         override val frequency: Float
             get() = 3322.88f
         override val noteName: String
-            get() = "G_SHARP"
+            get() = "G#"
     },
     G_SHARP_8 {
         override val frequency: Float
             get() = 6645.76f
         override val noteName: String
-            get() = "G_SHARP"
+            get() = "G#"
     },
     A_0 {
         override val frequency: Float
@@ -545,55 +545,55 @@ enum class Note {
         override val frequency: Float
             get() = 29.14f
         override val noteName: String
-            get() = "B_FLAT"
+            get() = "B♭"
     },
     B_FLAT_1 {
         override val frequency: Float
             get() = 58.28f
         override val noteName: String
-            get() = "B_FLAT"
+            get() = "B♭"
     },
     B_FLAT_2 {
         override val frequency: Float
             get() = 116.56f
         override val noteName: String
-            get() = "B_FLAT"
+            get() = "B♭"
     },
     B_FLAT_3 {
         override val frequency: Float
             get() = 233.12f
         override val noteName: String
-            get() = "B_FLAT"
+            get() = "B♭"
     },
     B_FLAT_4 {
         override val frequency: Float
             get() = 466.24f
         override val noteName: String
-            get() = "B_FLAT"
+            get() = "B♭"
     },
     B_FLAT_5 {
         override val frequency: Float
             get() = 932.48f
         override val noteName: String
-            get() = "B_FLAT"
+            get() = "B♭"
     },
     B_FLAT_6 {
         override val frequency: Float
             get() = 1864.96f
         override val noteName: String
-            get() = "B_FLAT"
+            get() = "B♭"
     },
     B_FLAT_7 {
         override val frequency: Float
             get() = 3729.92f
         override val noteName: String
-            get() = "B_FLAT"
+            get() = "B♭"
     },
     B_FLAT_8 {
         override val frequency: Float
             get() = 7459.84f
         override val noteName: String
-            get() = "B_FLAT"
+            get() = "B♭"
     },
     B_0 {
         override val frequency: Float

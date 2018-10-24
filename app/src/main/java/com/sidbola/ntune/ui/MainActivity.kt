@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         pitchDetectionHandler = PitchDetectionHandler { pitchDetectionResult, _ ->
             this.pitch = pitchDetectionResult.pitch
             delay++
-            if (delay > 9){
+            if (delay > 10){
                 delay = 0
                 runOnUiThread {
                     td_main_tuner.updateFrequency(pitch)

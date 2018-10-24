@@ -75,7 +75,7 @@ class TunerDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
 
         pitchDeviation.updateInfo(freq, tuning.notes[closestNoteIndex].frequency)
         pitchDisplay.updateDisplay(freq, tuning.notes[closestNoteIndex].frequency)
-        if (freq != -1f) notesDisplay.setActiveNote(closestNoteIndex - 1)
+        if (freq != -1f) notesDisplay.setActiveNote(closestNoteIndex)
         else notesDisplay.deselectButtons(null)
 
         invalidate()
