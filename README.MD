@@ -1,4 +1,4 @@
-#N.Tune
+# N.Tune
 N.Tune is an mobile tuner application for use with stringed instruments. Currently the supported instruments are:
 * Guitar
 * 4 String Bass
@@ -24,3 +24,4 @@ The app makes use of the [TarsosDSP Audio Library](https://github.com/JorenSix/T
 ## Screenshots
 <p align="center">
 ![Preview of Animated Menu](https://media.giphy.com/media/9SIO6XmjB9O1LK0vjL/giphy.gif)
+</p>
