@@ -11,7 +11,7 @@ import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import com.sidbola.ntune.R
 
-class PitchDisplay(context: Context, attrs: AttributeSet): View(context, attrs) {
+class PitchDisplay(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     private var paintLines = Paint()
     private var currentPaintLine = Paint()
@@ -26,7 +26,6 @@ class PitchDisplay(context: Context, attrs: AttributeSet): View(context, attrs) 
         targetFrequency = -1f
         currentLineX = 0f
         currentLineFutureX = 0f
-
 
         paintLines.color = Color.parseColor("#212121")
         paintLines.isAntiAlias = true
@@ -54,11 +53,11 @@ class PitchDisplay(context: Context, attrs: AttributeSet): View(context, attrs) 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        val barSeparationAmount = (width/42f)
+        val barSeparationAmount = (width / 42f)
 
         // Calculate line heights
-        val highLineY = (height/10f) * 2
-        val lowLineY = (height/7.5f) * 2
+        val highLineY = (height / 10f) * 2
+        val lowLineY = (height / 7.5f) * 2
         val allLinesY = (measuredHeight).toFloat()
 
         // Calculate positions for high lines
@@ -78,18 +77,18 @@ class PitchDisplay(context: Context, attrs: AttributeSet): View(context, attrs) 
         }
 
         // Paint numbering
-        textPaintLine.textSize = height/8f
-        canvas?.drawText("-20",height/8f, height/8f, textPaintLine)
-        canvas?.drawText("0",width/2f, height/8f, textPaintLine)
-        canvas?.drawText("+20",width - (height/8f), height/8f, textPaintLine)
+        textPaintLine.textSize = height / 8f
+        canvas?.drawText("-20", height / 8f, height / 8f, textPaintLine)
+        canvas?.drawText("0", width / 2f, height / 8f, textPaintLine)
+        canvas?.drawText("+20", width - (height / 8f), height / 8f, textPaintLine)
 
-        if (frequency != -1f){
-            canvas?.drawLine(currentLineX,highLineY,currentLineX,allLinesY,currentPaintLine)
+        if (frequency != -1f) {
+            canvas?.drawLine(currentLineX, highLineY, currentLineX, allLinesY, currentPaintLine)
         }
     }
 
     private fun animateCursor() {
-        val animator = ValueAnimator.ofFloat(currentLineX,currentLineFutureX)
+        val animator = ValueAnimator.ofFloat(currentLineX, currentLineFutureX)
         animator.duration = 500
         animator.interpolator = AccelerateDecelerateInterpolator()
         animator.addUpdateListener {
@@ -99,11 +98,11 @@ class PitchDisplay(context: Context, attrs: AttributeSet): View(context, attrs) 
         animator.start()
     }
 
-    fun updateDisplay (currentFrequency: Float, targetFrequency: Float){
+    fun updateDisplay(currentFrequency: Float, targetFrequency: Float) {
         this.frequency = currentFrequency
         this.targetFrequency = targetFrequency
 
-        val unitLength = width/40
+        val unitLength = width / 40
         val bottomEnd = targetFrequency - 20
 
         val translatedCurFreq = currentFrequency - bottomEnd
@@ -119,5 +118,4 @@ class PitchDisplay(context: Context, attrs: AttributeSet): View(context, attrs) 
         invalidate()
         requestLayout()
     }
-
 }

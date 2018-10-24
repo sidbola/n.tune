@@ -5,13 +5,10 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.support.v4.view.animation.FastOutSlowInInterpolator
-import android.support.v4.view.animation.LinearOutSlowInInterpolator
 import android.util.AttributeSet
-import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.Button
 
-class CircleButton(context: Context, attrs: AttributeSet?): Button(context, attrs) {
+class CircleButton(context: Context, attrs: AttributeSet?) : Button(context, attrs) {
 
     private val circlePaint = Paint()
     private var circleAlpha = 0
@@ -29,27 +26,25 @@ class CircleButton(context: Context, attrs: AttributeSet?): Button(context, attr
     override fun onDraw(canvas: Canvas?) {
         circlePaint.color = Color.parseColor("#25b86b")
         circlePaint.alpha = circleAlpha
-        canvas?.drawCircle(width/2f, height/2f, height/2f, circlePaint)
+        canvas?.drawCircle(width / 2f, height / 2f, height / 2f, circlePaint)
 
         super.onDraw(canvas)
     }
 
     constructor(context: Context): this(context, null)
 
-    fun setHighlighted(isHighlighted: Boolean){
+    fun setHighlighted(isHighlighted: Boolean) {
         this.isHighlighted = isHighlighted
 
-        if (isHighlighted){
+        if (isHighlighted) {
             animateUp()
         } else {
             animateDown()
         }
     }
 
-
-
     private fun animateUp() {
-        val animator = ValueAnimator.ofInt(circleAlpha,255)
+        val animator = ValueAnimator.ofInt(circleAlpha, 255)
         animator.duration = 300
 
         animator.addUpdateListener {
@@ -60,7 +55,7 @@ class CircleButton(context: Context, attrs: AttributeSet?): Button(context, attr
     }
 
     private fun animateDown() {
-        val animator = ValueAnimator.ofInt(circleAlpha,0)
+        val animator = ValueAnimator.ofInt(circleAlpha, 0)
         animator.duration = 300
 
         animator.addUpdateListener {
@@ -69,6 +64,4 @@ class CircleButton(context: Context, attrs: AttributeSet?): Button(context, attr
         }
         animator.start()
     }
-
-
 }

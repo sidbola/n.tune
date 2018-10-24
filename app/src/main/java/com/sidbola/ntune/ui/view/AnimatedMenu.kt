@@ -23,13 +23,13 @@ import com.sidbola.ntune.data.Tuning
 const val ANIMATION_DURATION = 300L
 const val FIRST_LEVEL_COUNT = 3
 
-class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs) {
+class AnimatedMenu(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     interface OnTuningSelected {
         fun onTuningSelected(tuning: Tuning)
     }
 
     // Listeners
-    private var mListener : OnTuningSelected? = null
+    private var mListener: OnTuningSelected? = null
 
     // Paints
     private val titleTextPaintLine = Paint()
@@ -70,19 +70,19 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
         buttonRadius = width / 17f
         buttonStartPosX = buttonRadius * 1.5f
         buttonStartPosY = buttonRadius * 1.5f
-        buttonSpreadRadius = width/4f
+        buttonSpreadRadius = width / 4f
         buttonCaptionSpacing = height / 21f
         backgroundSpreadRadius = width * 0.8f
         vectorIconBoundVariation = width / 30
         titleTextPaintLine.textSize = height / 45f
         textPaintLine.textSize = height / 100f
         currentTuningPaint.textSize = height / 25f
-        expanderDeviation = width/4f
+        expanderDeviation = width / 4f
         titleSpacingFromTop = height / 7f
         tuningItemSpacing = height / 12f
 
         // Set default locations for buttons
-        for (item in items){
+        for (item in items) {
             item.x = buttonStartPosX
             item.y = buttonStartPosY
         }
@@ -117,19 +117,19 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
         selectedCirclePaint.color = Color.parseColor("#25b86b")
         selectedCirclePaint.isAntiAlias = true
 
-        for (instrument in Instrument.values()){
-            items.add(ButtonItem(buttonStartPosX, buttonStartPosY, instrument.toString(), instrument.name ,instrument.getImage))
+        for (instrument in Instrument.values()) {
+            items.add(ButtonItem(buttonStartPosX, buttonStartPosY, instrument.toString(), instrument.name, instrument.getImage))
         }
     }
 
-    fun setTuningSelectedListener(listener: OnTuningSelected){
+    fun setTuningSelectedListener(listener: OnTuningSelected) {
         this.mListener = listener
     }
 
     private fun animateOpenMenu() {
         bringToFront()
 
-        val currentTuningTextAnimator = ValueAnimator.ofInt(255,0)
+        val currentTuningTextAnimator = ValueAnimator.ofInt(255, 0)
         currentTuningTextAnimator.duration = 200
         currentTuningTextAnimator.interpolator = AccelerateDecelerateInterpolator()
         currentTuningTextAnimator.addUpdateListener {
@@ -148,7 +148,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
         }
 
         // Animate buttons once background finishes animating
-        bgAnimator.addListener(object : AnimatorListenerAdapter(){
+        bgAnimator.addListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
                 super.onAnimationEnd(animation)
 
@@ -156,22 +156,22 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                 textPaintLine.alpha = 255
                 var currentDeg = 0.0
                 var levelCount = FIRST_LEVEL_COUNT
-                var sep = 90.0/(levelCount - 1)
+                var sep = 90.0 / (levelCount - 1)
                 var radiusMultiplier = 1
                 var currentCount = 0
 
-                for (itemIndex in 0 until items.size){
-                    if (currentCount == levelCount){
+                for (itemIndex in 0 until items.size) {
+                    if (currentCount == levelCount) {
                         levelCount += 2
                         radiusMultiplier++
                         currentCount = 0
-                        sep = 90.0/(levelCount-1)
+                        sep = 90.0 / (levelCount - 1)
                         currentDeg = 0.0
                     }
                     val targetX = buttonStartPosX + ((buttonSpreadRadius * radiusMultiplier) * Math.cos(Math.toRadians(currentDeg))).toFloat()
                     val targetY = buttonStartPosY + ((buttonSpreadRadius * radiusMultiplier) * Math.sin(Math.toRadians(currentDeg))).toFloat()
 
-                    val xAnimator = ValueAnimator.ofFloat(buttonStartPosX,targetX)
+                    val xAnimator = ValueAnimator.ofFloat(buttonStartPosX, targetX)
                     xAnimator.duration = ANIMATION_DURATION
                     xAnimator.interpolator = OvershootInterpolator()
                     xAnimator.addUpdateListener {
@@ -180,7 +180,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                     }
                     xAnimator.start()
 
-                    val yAnimator = ValueAnimator.ofFloat(buttonStartPosY,targetY)
+                    val yAnimator = ValueAnimator.ofFloat(buttonStartPosY, targetY)
                     yAnimator.duration = ANIMATION_DURATION
                     yAnimator.interpolator = OvershootInterpolator()
                     yAnimator.addUpdateListener {
@@ -200,7 +200,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
     private fun animateCloseMenu() {
         bringToFront()
 
-        for (itemIndex in 0 until items.size){
+        for (itemIndex in 0 until items.size) {
             val xAnimator = ValueAnimator.ofFloat(items[itemIndex].x, buttonStartPosX)
             xAnimator.duration = ANIMATION_DURATION
             xAnimator.interpolator = AnticipateInterpolator()
@@ -231,10 +231,10 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                         invalidate()
                     }
 
-                    bgAnimator.addListener(object: AnimatorListenerAdapter(){
+                    bgAnimator.addListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator?) {
                             super.onAnimationEnd(animation)
-                            val currentTuningTextAnimator = ValueAnimator.ofInt(0,255)
+                            val currentTuningTextAnimator = ValueAnimator.ofInt(0, 255)
                             currentTuningTextAnimator.duration = 200
                             currentTuningTextAnimator.interpolator = AccelerateDecelerateInterpolator()
                             currentTuningTextAnimator.addUpdateListener {
@@ -252,7 +252,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
         }
     }
 
-    private fun animateItemSelected(){
+    private fun animateItemSelected() {
         bringToFront()
 
         val bgAnimator = ValueAnimator.ofFloat(backgroundSpreadRadius, 0f)
@@ -264,7 +264,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
         }
         bgAnimator.start()
 
-        val xAnimator = ValueAnimator.ofFloat(items[selectedIndex].x, width/2f)
+        val xAnimator = ValueAnimator.ofFloat(items[selectedIndex].x, width / 2f)
         xAnimator.duration = ANIMATION_DURATION
         xAnimator.interpolator = AccelerateDecelerateInterpolator()
         xAnimator.addUpdateListener {
@@ -288,7 +288,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
 
                 showTunings = true
 
-                val titleTextAnimator = ValueAnimator.ofInt(0,255)
+                val titleTextAnimator = ValueAnimator.ofInt(0, 255)
                 titleTextAnimator.duration = 500
                 titleTextAnimator.interpolator = AccelerateDecelerateInterpolator()
                 titleTextAnimator.addUpdateListener {
@@ -296,7 +296,6 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                     invalidate()
                 }
                 titleTextAnimator.start()
-
 
                 val topBgAnimator = ValueAnimator.ofFloat(0f, titleSpacingFromTop + tuningDisplays.size * tuningItemSpacing)
                 topBgAnimator.duration = 200
@@ -307,7 +306,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                 }
                 topBgAnimator.start()
 
-                val expanderLeftAnimator = ValueAnimator.ofFloat(width/2f, width/2f - expanderDeviation)
+                val expanderLeftAnimator = ValueAnimator.ofFloat(width / 2f, width / 2f - expanderDeviation)
                 expanderLeftAnimator.duration = 200
                 expanderLeftAnimator.interpolator = AccelerateDecelerateInterpolator()
                 expanderLeftAnimator.addUpdateListener {
@@ -316,7 +315,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                 }
                 expanderLeftAnimator.start()
 
-                val expanderRightAnimator = ValueAnimator.ofFloat(width/2f, width/2f + expanderDeviation)
+                val expanderRightAnimator = ValueAnimator.ofFloat(width / 2f, width / 2f + expanderDeviation)
                 expanderRightAnimator.duration = 200
                 expanderRightAnimator.interpolator = AccelerateDecelerateInterpolator()
                 expanderRightAnimator.addUpdateListener {
@@ -324,20 +323,17 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                     invalidate()
                 }
                 expanderRightAnimator.start()
-
-
             }
         })
         yAnimator.start()
     }
 
-    private fun animateCloseItemSelected(){
+    private fun animateCloseItemSelected() {
         bringToFront()
 
+        for (itemIndex in 0 until items.size) {
 
-        for (itemIndex in 0 until items.size){
-
-            val titleTextAnimator = ValueAnimator.ofInt(255,0)
+            val titleTextAnimator = ValueAnimator.ofInt(255, 0)
             titleTextAnimator.duration = 200
             titleTextAnimator.interpolator = AccelerateDecelerateInterpolator()
             titleTextAnimator.addUpdateListener {
@@ -346,7 +342,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
             }
             titleTextAnimator.start()
 
-            val titleAnimatorLeft = ValueAnimator.ofFloat(expanderItemLeft, width/2f)
+            val titleAnimatorLeft = ValueAnimator.ofFloat(expanderItemLeft, width / 2f)
             titleAnimatorLeft.duration = ANIMATION_DURATION
             titleAnimatorLeft.interpolator = AnticipateInterpolator()
             titleAnimatorLeft.addUpdateListener {
@@ -355,7 +351,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
             }
             titleAnimatorLeft.start()
 
-            val titleAnimatorRight = ValueAnimator.ofFloat(expanderItemRight, width/2f)
+            val titleAnimatorRight = ValueAnimator.ofFloat(expanderItemRight, width / 2f)
             titleAnimatorRight.duration = ANIMATION_DURATION
             titleAnimatorRight.interpolator = AnticipateInterpolator()
             titleAnimatorRight.addUpdateListener {
@@ -363,12 +359,11 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                 invalidate()
             }
 
-            titleAnimatorRight.addListener(object: AnimatorListenerAdapter(){
+            titleAnimatorRight.addListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator?) {
                     super.onAnimationEnd(animation)
 
                     showTunings = false
-
 
                     val xAnimator = ValueAnimator.ofFloat(items[itemIndex].x, buttonStartPosX)
                     xAnimator.duration = ANIMATION_DURATION
@@ -392,7 +387,6 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                             shouldShowAllIcons = false
                             textPaintLine.alpha = 0
 
-
                             val topBgAnimator = ValueAnimator.ofFloat(titleSpacingFromTop + tuningDisplays.size * tuningItemSpacing, 0f)
                             topBgAnimator.duration = 200
                             topBgAnimator.interpolator = AccelerateDecelerateInterpolator()
@@ -401,10 +395,10 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                                 invalidate()
                             }
 
-                            topBgAnimator.addListener(object: AnimatorListenerAdapter(){
+                            topBgAnimator.addListener(object : AnimatorListenerAdapter() {
                                 override fun onAnimationEnd(animation: Animator?) {
                                     super.onAnimationEnd(animation)
-                                    val currentTuningTextAnimator = ValueAnimator.ofInt(0,255)
+                                    val currentTuningTextAnimator = ValueAnimator.ofInt(0, 255)
                                     currentTuningTextAnimator.duration = 200
                                     currentTuningTextAnimator.interpolator = AccelerateDecelerateInterpolator()
                                     currentTuningTextAnimator.addUpdateListener {
@@ -422,18 +416,17 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                 }
             })
             titleAnimatorRight.start()
-
         }
     }
 
     override fun onDraw(canvas: Canvas?) {
-        canvas?.drawCircle(0f,0f,cornerBackgroundRadius,backgroundPaint)
-        canvas?.drawCircle(width/2f,0f,topBackgroundRadius,backgroundPaint)
+        canvas?.drawCircle(0f, 0f, cornerBackgroundRadius, backgroundPaint)
+        canvas?.drawCircle(width / 2f, 0f, topBackgroundRadius, backgroundPaint)
 
-        canvas?.drawText(selectedTuning, buttonStartPosX + (buttonRadius * 1.5f), buttonStartPosY + buttonRadius/2, currentTuningPaint)
+        canvas?.drawText(selectedTuning, buttonStartPosX + (buttonRadius * 1.5f), buttonStartPosY + buttonRadius / 2, currentTuningPaint)
 
-        for (itemIndex in 0 until items.size){
-            if (itemIndex == selectedIndex){
+        for (itemIndex in 0 until items.size) {
+            if (itemIndex == selectedIndex) {
                 canvas?.drawCircle(items[itemIndex].x, items[itemIndex].y, buttonRadius, selectedCirclePaint)
 
                 items[itemIndex].image.setBounds(items[itemIndex].x.toInt() - vectorIconBoundVariation,
@@ -444,7 +437,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                 items[itemIndex].image.draw(canvas)
 
                 canvas?.drawText(items[itemIndex].simpleName, items[itemIndex].x, items[itemIndex].y + buttonCaptionSpacing, textPaintLine)
-            } else if (shouldShowAllIcons){
+            } else if (shouldShowAllIcons) {
 
                 items[itemIndex].image.setBounds(items[itemIndex].x.toInt() - vectorIconBoundVariation,
                     items[itemIndex].y.toInt() - vectorIconBoundVariation,
@@ -453,19 +446,18 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
 
                 items[itemIndex].image.draw(canvas)
 
-
                 canvas?.drawText(items[itemIndex].simpleName, items[itemIndex].x, items[itemIndex].y + buttonCaptionSpacing, textPaintLine)
             }
         }
 
-        if (showTunings){
+        if (showTunings) {
             canvas?.drawCircle(expanderItemLeft, buttonStartPosY, buttonRadius, selectedCirclePaint)
             canvas?.drawCircle(expanderItemRight, buttonStartPosY, buttonRadius, selectedCirclePaint)
             canvas?.drawRect(expanderItemLeft, buttonStartPosY - buttonRadius, expanderItemRight, buttonStartPosY + buttonRadius, selectedCirclePaint)
-            canvas?.drawText(items[selectedIndex].simpleName,width/2f, buttonStartPosY + (titleTextPaintLine.textSize/3), titleTextPaintLine)
+            canvas?.drawText(items[selectedIndex].simpleName, width / 2f, buttonStartPosY + (titleTextPaintLine.textSize / 3), titleTextPaintLine)
 
             for (i in 0 until tuningDisplays.size) {
-                canvas?.drawText(tuningDisplays[i], width/2f, titleSpacingFromTop + (tuningItemSpacing * i),titleTextPaintLine)
+                canvas?.drawText(tuningDisplays[i], width / 2f, titleSpacingFromTop + (tuningItemSpacing * i), titleTextPaintLine)
             }
 
             items[selectedIndex].image.setBounds(expanderItemLeft.toInt() - vectorIconBoundVariation,
@@ -479,32 +471,31 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
         super.onDraw(canvas)
     }
 
-
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        if (event?.action == MotionEvent.ACTION_DOWN){
+        if (event?.action == MotionEvent.ACTION_DOWN) {
             return true
         }
-        if (event?.action == MotionEvent.ACTION_UP){
+        if (event?.action == MotionEvent.ACTION_UP) {
             when (menuState) {
-                MenuState.DEFAULT -> if (indexOfButtonPressed(event) != -1){
+                MenuState.DEFAULT -> if (indexOfButtonPressed(event) != -1) {
                     animateOpenMenu()
                     menuState = MenuState.OPEN
                 }
                 MenuState.OPEN -> {
                     val click = indexOfButtonPressed(event)
-                    if (click != -1){
+                    if (click != -1) {
                         selectedIndex = click
                         shouldShowAllIcons = false
                         animateItemSelected()
                         menuState = MenuState.INSTRUMENT_SELECTED
 
                         tuningDisplays.clear()
-                        for (tuning in Instrument.valueOf(items[selectedIndex].name).availableTunings){
+                        for (tuning in Instrument.valueOf(items[selectedIndex].name).availableTunings) {
                             tuningDisplays.add(tuning.name)
                         }
 
-                        //mListener?.onTuningSelected(Instrument.valueOf(items[selectedIndex].name).availableTunings[0])
+                        // mListener?.onTuningSelected(Instrument.valueOf(items[selectedIndex].name).availableTunings[0])
                     } else {
                         animateCloseMenu()
                         menuState = MenuState.DEFAULT
@@ -512,7 +503,7 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
                 }
                 MenuState.INSTRUMENT_SELECTED -> {
                     val click = indexOfTuningSelected(event)
-                    if (click != -1){
+                    if (click != -1) {
                         animateCloseItemSelected()
                         mListener?.onTuningSelected(Instrument.valueOf(items[selectedIndex].name).availableTunings[click])
                         selectedTuning = tuningDisplays[click]
@@ -533,9 +524,9 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
 
     private fun indexOfTuningSelected(event: MotionEvent): Int {
 
-        for (i in 0 until tuningDisplays.size){
-            if (event.x > width/2f - expanderDeviation && event.x < width/2f + expanderDeviation &&
-                event.y > titleSpacingFromTop + (tuningItemSpacing * i) - 30f && event.y < titleSpacingFromTop + (tuningItemSpacing * i) + 30f){
+        for (i in 0 until tuningDisplays.size) {
+            if (event.x > width / 2f - expanderDeviation && event.x < width / 2f + expanderDeviation &&
+                event.y > titleSpacingFromTop + (tuningItemSpacing * i) - 30f && event.y < titleSpacingFromTop + (tuningItemSpacing * i) + 30f) {
                 return i
             }
         }
@@ -543,18 +534,16 @@ class AnimatedMenu (context: Context, attrs: AttributeSet?): View(context, attrs
         return -1
     }
 
-    private fun indexOfButtonPressed(event: MotionEvent): Int{
-        for (i in 0 until items.size){
+    private fun indexOfButtonPressed(event: MotionEvent): Int {
+        for (i in 0 until items.size) {
             if (event.x > items[i].x - buttonRadius && event.x < items[i].x + buttonRadius &&
-                event.y > items[i].y - buttonRadius && event.y < items[i].y + buttonRadius){
+                event.y > items[i].y - buttonRadius && event.y < items[i].y + buttonRadius) {
                 return i
             }
         }
 
         return -1
     }
-
-
 }
 
 data class ButtonItem(

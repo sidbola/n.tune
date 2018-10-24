@@ -2,7 +2,6 @@ package com.sidbola.ntune.ui.view
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.Gravity
 import android.widget.LinearLayout
 import com.sidbola.ntune.R
@@ -10,7 +9,7 @@ import com.sidbola.ntune.data.Instrument
 import com.sidbola.ntune.data.Tuning
 import kotlin.math.abs
 
-class TunerDisplay(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
+class TunerDisplay(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private var tuning: Tuning
     private val notesDisplay: NotesDisplay
     private val pitchDisplay: PitchDisplay
@@ -56,19 +55,12 @@ class TunerDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
             2f
         )
 
-
         notesDisplay.layoutParams = params1
         pitchDisplay.layoutParams = params2
         pitchDeviation.layoutParams = params3
-
     }
 
-    fun initialize(){
-
-    }
-
-
-    fun updateFrequency(freq: Float){
+    fun updateFrequency(freq: Float) {
         frequency = freq
 
         val closestNoteIndex = getClosestNote()
@@ -82,23 +74,21 @@ class TunerDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
         requestLayout()
     }
 
-    fun updateTuning(newTuning: Tuning){
+    fun updateTuning(newTuning: Tuning) {
         tuning = newTuning
 
         notesDisplay.setTuningNoteInfo(tuning)
-
 
         invalidate()
         requestLayout()
     }
 
-
     private fun getClosestNote(): Int {
         var closest = 8000f
         var targetIndex = 0
         val notes = tuning.notes
-        for (i in 0 until notes.size){
-            if (abs(notes[i].frequency - frequency) < closest){
+        for (i in 0 until notes.size) {
+            if (abs(notes[i].frequency - frequency) < closest) {
                 closest = abs(notes[i].frequency - frequency)
                 targetIndex = i
             }
@@ -106,10 +96,4 @@ class TunerDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
 
         return targetIndex
     }
-
 }
-
-
-
-
-

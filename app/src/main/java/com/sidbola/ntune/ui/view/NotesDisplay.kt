@@ -9,7 +9,7 @@ import com.sidbola.ntune.R
 import com.sidbola.ntune.data.Note
 import com.sidbola.ntune.data.Tuning
 
-class NotesDisplay(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
+class NotesDisplay(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private var tuningNoteInfo: Array<Note>?
     private var buttons: Array<CircleButton?>?
     private var buttonLayoutParams: LayoutParams
@@ -30,14 +30,14 @@ class NotesDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
         )
     }
 
-    private fun setupView(){
+    private fun setupView() {
         buttons = arrayOfNulls(tuningNoteInfo!!.size)
 
         orientation = LinearLayout.VERTICAL
         gravity = Gravity.CENTER
         weightSum = buttons!!.size.toFloat()
 
-        for (i in 0 until tuningNoteInfo!!.size){
+        for (i in 0 until tuningNoteInfo!!.size) {
             val button = CircleButton(context)
             button.text = tuningNoteInfo!![i].noteName
             button.layoutParams = buttonLayoutParams
@@ -46,21 +46,21 @@ class NotesDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
         }
     }
 
-    fun setTuningNoteInfo(tuning: Tuning){
-        if (buttonLinearLayout.childCount > 0){
+    fun setTuningNoteInfo(tuning: Tuning) {
+        if (buttonLinearLayout.childCount > 0) {
             buttonLinearLayout.removeAllViews()
         }
         tuningNoteInfo = tuning.notes
         setupView()
     }
 
-    fun deselectButtons(exception: CircleButton?){
-        if (exception != null){
-            for (button in buttons!!){
+    fun deselectButtons(exception: CircleButton?) {
+        if (exception != null) {
+            for (button in buttons!!) {
                 if (button != exception) button?.setHighlighted(false)
             }
         } else {
-            for (button in buttons!!){
+            for (button in buttons!!) {
                 button?.setHighlighted(false)
             }
         }
@@ -68,20 +68,15 @@ class NotesDisplay(context: Context, attrs: AttributeSet): LinearLayout(context,
         hertzTextView.text = "0 Hz"
     }
 
-    private fun selectNote(noteIndex: Int){
-        if (noteIndex != -1){
+    private fun selectNote(noteIndex: Int) {
+        if (noteIndex != -1) {
             deselectButtons(buttons!![noteIndex]!!)
             buttons!![noteIndex]?.setHighlighted(true)
             hertzTextView.text = tuningNoteInfo!![noteIndex].frequency.toString() + " Hz"
         }
-
     }
 
-
-    fun setActiveNote(noteIndex: Int){
+    fun setActiveNote(noteIndex: Int) {
         selectNote(noteIndex)
     }
-
-
-
 }

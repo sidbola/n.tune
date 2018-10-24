@@ -2,7 +2,7 @@ package com.sidbola.ntune.data
 
 import java.util.Arrays
 
-data class Tuning (
+data class Tuning(
     val name: String,
     val notes: Array<Note>
 ) {

@@ -24,7 +24,7 @@ enum class Instrument {
                 Tuning("Modal D", arrayOf(Note.D_2, Note.A_2, Note.D_3, Note.G_3, Note.A_3, Note.D_4))
             )
     },
-    //Bass strings are (5th string) B0=30.87Hz, (4th string) E1=41.20Hz, A1=55Hz, D2=73.42Hz, G2=98Hz
+    // Bass strings are (5th string) B0=30.87Hz, (4th string) E1=41.20Hz, A1=55Hz, D2=73.42Hz, G2=98Hz
     BASS_FOUR_STRING {
         override val getImage: Drawable
             get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -50,7 +50,6 @@ enum class Instrument {
                 NTuneApp.getApplicationContext().getDrawable(R.drawable.ic_bass_five)
             } else {
                 ContextCompat.getDrawable(NTuneApp.getApplicationContext(), R.drawable.ic_bass_five)!!
-
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(
@@ -67,7 +66,6 @@ enum class Instrument {
                 NTuneApp.getApplicationContext().getDrawable(R.drawable.ic_violin)
             } else {
                 ContextCompat.getDrawable(NTuneApp.getApplicationContext(), R.drawable.ic_violin)!!
-
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(
@@ -86,7 +84,6 @@ enum class Instrument {
                 NTuneApp.getApplicationContext().getDrawable(R.drawable.ic_mandolin)
             } else {
                 ContextCompat.getDrawable(NTuneApp.getApplicationContext(), R.drawable.ic_mandolin)!!
-
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(
@@ -103,7 +100,6 @@ enum class Instrument {
                 NTuneApp.getApplicationContext().getDrawable(R.drawable.ic_viola)
             } else {
                 ContextCompat.getDrawable(NTuneApp.getApplicationContext(), R.drawable.ic_viola)!!
-
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(
@@ -120,7 +116,6 @@ enum class Instrument {
                 NTuneApp.getApplicationContext().getDrawable(R.drawable.ic_banjo)
             } else {
                 ContextCompat.getDrawable(NTuneApp.getApplicationContext(), R.drawable.ic_banjo)!!
-
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(
@@ -136,7 +131,6 @@ enum class Instrument {
                 NTuneApp.getApplicationContext().getDrawable(R.drawable.ic_cello)
             } else {
                 ContextCompat.getDrawable(NTuneApp.getApplicationContext(), R.drawable.ic_cello)!!
-
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(

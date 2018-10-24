@@ -34,35 +34,34 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        if (hasPermissionToRecord()){
+        if (hasPermissionToRecord()) {
             initializeTuner()
         } else {
-            ActivityCompat.requestPermissions( this,
+            ActivityCompat.requestPermissions(this,
                 arrayOf(android.Manifest.permission.RECORD_AUDIO),
                 RECORD_AUDIO_PERMISSION_REQUEST_CODE
             )
         }
 
-
-        instrument_menu.setTuningSelectedListener(object: AnimatedMenu.OnTuningSelected {
+        instrument_menu.setTuningSelectedListener(object : AnimatedMenu.OnTuningSelected {
             override fun onTuningSelected(tuning: Tuning) {
                 td_main_tuner.updateTuning(tuning)
             }
         })
     }
 
-    private fun hasPermissionToRecord(): Boolean{
+    private fun hasPermissionToRecord(): Boolean {
         return ContextCompat.checkSelfPermission(this,
             android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
     }
 
-    private fun initializeTuner(){
+    private fun initializeTuner() {
         dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0)
 
         pitchDetectionHandler = PitchDetectionHandler { pitchDetectionResult, _ ->
             this.pitch = pitchDetectionResult.pitch
             delay++
-            if (delay > 10){
+            if (delay > 10) {
                 delay = 0
                 runOnUiThread {
                     td_main_tuner.updateFrequency(pitch)
@@ -72,7 +71,6 @@ class MainActivity : AppCompatActivity() {
 
         pitchProcessor = PitchProcessor(PitchEstimationAlgorithm.FFT_YIN, 22050f, 1024, pitchDetectionHandler)
         dispatcher.addAudioProcessor(pitchProcessor)
-
 
         GlobalScope.launch {
             dispatcher.run()

@@ -3,7 +3,7 @@ package com.sidbola.ntune
 import android.app.Application
 import android.content.Context
 
-class NTuneApp: Application() {
+class NTuneApp : Application() {
 
     init {
         instance = this
@@ -19,6 +19,5 @@ class NTuneApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
-
     }
 }
