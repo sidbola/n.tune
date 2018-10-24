@@ -55,6 +55,12 @@ enum class Note {
         override val noteName: String
             get() = "C"
     },
+    C_9 {
+        override val frequency: Float
+            get() = 8371.2f
+        override val noteName: String
+            get() = "C"
+    },
     C_SHARP_0 {
         override val frequency: Float
             get() = 17.32f
@@ -106,6 +112,12 @@ enum class Note {
     C_SHARP_8 {
         override val frequency: Float
             get() = 4433.92f
+        override val noteName: String
+            get() = "C#"
+    },
+    C_SHARP_9 {
+        override val frequency: Float
+            get() = 8867.84f
         override val noteName: String
             get() = "C#"
     },
@@ -163,6 +175,12 @@ enum class Note {
         override val noteName: String
             get() = "D"
     },
+    D_9 {
+        override val frequency: Float
+            get() = 9395.2f
+        override val noteName: String
+            get() = "D"
+    },
     E_FLAT_0 {
         override val frequency: Float
             get() = 19.45f
@@ -214,6 +232,12 @@ enum class Note {
     E_FLAT_8 {
         override val frequency: Float
             get() = 4979.2f
+        override val noteName: String
+            get() = "E♭"
+    },
+    E_FLAT_9 {
+        override val frequency: Float
+            get() = 9958.4f
         override val noteName: String
             get() = "E♭"
     },
@@ -271,6 +295,12 @@ enum class Note {
         override val noteName: String
             get() = "E"
     },
+    E_9 {
+        override val frequency: Float
+            get() = 10547.2f
+        override val noteName: String
+            get() = "E"
+    },
     F_0 {
         override val frequency: Float
             get() = 21.83f
@@ -322,6 +352,12 @@ enum class Note {
     F_8 {
         override val frequency: Float
             get() = 5588.48f
+        override val noteName: String
+            get() = "F"
+    },
+    F_9 {
+        override val frequency: Float
+            get() = 11176.96f
         override val noteName: String
             get() = "F"
     },
@@ -379,6 +415,12 @@ enum class Note {
         override val noteName: String
             get() = "F#"
     },
+    F_SHARP_9 {
+        override val frequency: Float
+            get() = 11837.44f
+        override val noteName: String
+            get() = "F#"
+    },
     G_0 {
         override val frequency: Float
             get() = 24.5f
@@ -430,6 +472,12 @@ enum class Note {
     G_8 {
         override val frequency: Float
             get() = 6272.0f
+        override val noteName: String
+            get() = "G"
+    },
+    G_9 {
+        override val frequency: Float
+            get() = 12544.0f
         override val noteName: String
             get() = "G"
     },
@@ -487,6 +535,12 @@ enum class Note {
         override val noteName: String
             get() = "G#"
     },
+    G_SHARP_9 {
+        override val frequency: Float
+            get() = 13291.52f
+        override val noteName: String
+            get() = "G#"
+    },
     A_0 {
         override val frequency: Float
             get() = 27.5f
@@ -538,6 +592,12 @@ enum class Note {
     A_8 {
         override val frequency: Float
             get() = 7040.0f
+        override val noteName: String
+            get() = "A"
+    },
+    A_9 {
+        override val frequency: Float
+            get() = 14080.0f
         override val noteName: String
             get() = "A"
     },
@@ -595,6 +655,12 @@ enum class Note {
         override val noteName: String
             get() = "B♭"
     },
+    B_FLAT_9 {
+        override val frequency: Float
+            get() = 14919.68f
+        override val noteName: String
+            get() = "B♭"
+    },
     B_0 {
         override val frequency: Float
             get() = 30.87f
@@ -648,6 +714,12 @@ enum class Note {
             get() = 7902.72f
         override val noteName: String
             get() = "B"
+    },
+    B_9 {
+        override val frequency: Float
+        get() = 15805.44f
+        override val noteName: String
+        get() = "B"
     };
 
     abstract val noteName: String
