@@ -24,4 +24,4 @@ The app makes use of the [TarsosDSP Audio Library](https://github.com/JorenSix/T
 
 ## Screenshots
 <p align="center">
- <img src="https://media.giphy.com/media/9SIO6XmjB9O1LK0vjL/giphy.gif"/>
+ <img src="https://imgur.com/3T3bMHJ.gif" width="400"/>
