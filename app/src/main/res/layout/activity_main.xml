@@ -3,10 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.MainActivity"
-    android:background="#161616">
+    android:background="#ffffff">
 
     <com.sidbola.ntune.ui.view.AnimatedMenu
         android:id="@+id/instrument_menu"
@@ -61,7 +60,8 @@
         android:id="@+id/td_main_tuner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"/>
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
 
 
 

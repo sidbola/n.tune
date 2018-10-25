@@ -106,7 +106,7 @@ class AnimatedMenu(context: Context, attrs: AttributeSet?) : View(context, attrs
         titleTextPaintLine.alpha = 0
 
         currentTuningPaint.typeface = font
-        currentTuningPaint.color = Color.parseColor("#ffffff")
+        currentTuningPaint.color = Color.parseColor("#000000")
         currentTuningPaint.isAntiAlias = true
         currentTuningPaint.style = Paint.Style.STROKE
 
@@ -114,7 +114,7 @@ class AnimatedMenu(context: Context, attrs: AttributeSet?) : View(context, attrs
         backgroundPaint.isAntiAlias = true
         backgroundPaint.alpha = 240
 
-        selectedCirclePaint.color = Color.parseColor("#25b86b")
+        selectedCirclePaint.color = Color.parseColor("#00695C")
         selectedCirclePaint.isAntiAlias = true
 
         for (instrument in Instrument.values()) {

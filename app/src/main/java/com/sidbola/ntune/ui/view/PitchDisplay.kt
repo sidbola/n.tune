@@ -27,7 +27,7 @@ class PitchDisplay(context: Context, attrs: AttributeSet) : View(context, attrs)
         currentLineX = 0f
         currentLineFutureX = 0f
 
-        paintLines.color = Color.parseColor("#212121")
+        paintLines.color = Color.parseColor("#E1E1E1")
         paintLines.isAntiAlias = true
         paintLines.style = Paint.Style.STROKE
         paintLines.strokeJoin = Paint.Join.ROUND
@@ -36,13 +36,13 @@ class PitchDisplay(context: Context, attrs: AttributeSet) : View(context, attrs)
 
         val font = ResourcesCompat.getFont(context, R.font.raleway_light)
         textPaintLine.typeface = font
-        textPaintLine.color = Color.parseColor("#414141")
+        textPaintLine.color = Color.parseColor("#000000")
         textPaintLine.isAntiAlias = true
         textPaintLine.style = Paint.Style.STROKE
         textPaintLine.textAlign = Paint.Align.CENTER
         textPaintLine.textSize = 10f
 
-        currentPaintLine.color = Color.WHITE
+        currentPaintLine.color = Color.parseColor("#00695C")
         currentPaintLine.isAntiAlias = true
         currentPaintLine.style = Paint.Style.STROKE
         currentPaintLine.strokeJoin = Paint.Join.ROUND

@@ -1,5 +1,6 @@
 package com.sidbola.ntune.ui.view
 
+import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
@@ -13,18 +14,20 @@ class CircleButton(context: Context, attrs: AttributeSet?) : Button(context, att
     private val circlePaint = Paint()
     private var circleAlpha = 0
     private var isHighlighted = false
+    private var curTextColor = 0
 
     init {
 
         setBackgroundColor(Color.TRANSPARENT)
 
-        setTextColor(Color.parseColor("#ffffff"))
+        curTextColor = Color.BLACK
+        setTextColor(curTextColor)
 
         circlePaint.isAntiAlias = true
     }
 
     override fun onDraw(canvas: Canvas?) {
-        circlePaint.color = Color.parseColor("#25b86b")
+        circlePaint.color = Color.parseColor("#00695C")
         circlePaint.alpha = circleAlpha
         canvas?.drawCircle(width / 2f, height / 2f, height / 2f, circlePaint)
 
@@ -52,6 +55,16 @@ class CircleButton(context: Context, attrs: AttributeSet?) : Button(context, att
             invalidate()
         }
         animator.start()
+
+        val toColor = Color.WHITE
+        val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), curTextColor, toColor)
+        colorAnimation.duration = 300
+        colorAnimation.addUpdateListener {
+            curTextColor = it.animatedValue as Int
+            this.setTextColor(it.animatedValue as Int)
+            invalidate()
+        }
+        colorAnimation.start()
     }
 
     private fun animateDown() {
@@ -63,5 +76,15 @@ class CircleButton(context: Context, attrs: AttributeSet?) : Button(context, att
             invalidate()
         }
         animator.start()
+
+        val toColor = Color.BLACK
+        val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), curTextColor, toColor)
+        colorAnimation.duration = 300
+        colorAnimation.addUpdateListener {
+            curTextColor = it.animatedValue as Int
+            this.setTextColor(it.animatedValue as Int)
+            invalidate()
+        }
+        colorAnimation.start()
     }
 }

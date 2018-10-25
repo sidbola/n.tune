@@ -28,6 +28,8 @@ class NotesDisplay(context: Context, attrs: AttributeSet) : LinearLayout(context
             LayoutParams.MATCH_PARENT,
             1f
         )
+
+
     }
 
     private fun setupView() {

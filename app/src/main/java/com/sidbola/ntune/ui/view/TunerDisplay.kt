@@ -12,7 +12,7 @@ import kotlin.math.abs
 class TunerDisplay(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private var tuning: Tuning
     private val notesDisplay: NotesDisplay
-    private val pitchDisplay: PitchDisplay
+    private val pitchDisplay: LinearPitchDisplay
     private val pitchDeviation: PitchDeviation
     private var frequency: Float
 
@@ -40,7 +40,7 @@ class TunerDisplay(context: Context, attrs: AttributeSet) : LinearLayout(context
         val params1 = LinearLayout.LayoutParams(
             LayoutParams.MATCH_PARENT,
             0,
-            1.5f
+            1f
         )
 
         val params2 = LinearLayout.LayoutParams(
@@ -52,7 +52,7 @@ class TunerDisplay(context: Context, attrs: AttributeSet) : LinearLayout(context
         val params3 = LinearLayout.LayoutParams(
             LayoutParams.MATCH_PARENT,
             0,
-            2f
+            1f
         )
 
         notesDisplay.layoutParams = params1
