@@ -9,14 +9,11 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.support.v4.content.res.ResourcesCompat
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import com.sidbola.ntune.R
-import com.sidbola.ntune.data.Note
 import kotlin.math.roundToInt
-
 
 class LinearPitchDisplay(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
@@ -38,7 +35,6 @@ class LinearPitchDisplay(context: Context, attrs: AttributeSet) : View(context, 
     private val TOO_HIGH = 2
     private val IN_TUNE = 1
     private val TOO_LOW = 0
-
 
     var cents = 0
 
@@ -89,29 +85,26 @@ class LinearPitchDisplay(context: Context, attrs: AttributeSet) : View(context, 
         targetCirclePaint.strokeJoin = Paint.Join.ROUND
         targetCirclePaint.strokeCap = Paint.Cap.ROUND
         targetCirclePaint.strokeWidth = context.resources.displayMetrics.density * 6f
-
     }
-
-
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        canvas?.drawLine(0f, height /2f, width/2f - 40, height/2f, paintLines)
-        canvas?.drawLine(width/2f + 40, height /2f, width.toFloat(), height/2f, paintLines)
-        canvas?.drawCircle(width/2f, height / 2f, 40f, targetCirclePaint)
+        canvas?.drawLine(0f, height / 2f, width / 2f - 40, height / 2f, paintLines)
+        canvas?.drawLine(width / 2f + 40, height / 2f, width.toFloat(), height / 2f, paintLines)
+        canvas?.drawCircle(width / 2f, height / 2f, 40f, targetCirclePaint)
 
 
         if (frequency != -1f) {
             canvas?.drawCircle(currentLineX, height / 2f, 34f, cursorInnerPaint)
             canvas?.drawCircle(currentLineX, height / 2f, 35f, cursorPaint)
 
-            canvas?.drawText(prompt, width/2f, promptPositionY, promptPaint)
+            canvas?.drawText(prompt, width / 2f, promptPositionY, promptPaint)
         }
     }
 
-    private fun animatePromptChange(newPrompt: String, newStatus: Int){
-        if (promptStatus != newStatus){
+    private fun animatePromptChange(newPrompt: String, newStatus: Int) {
+        if (promptStatus != newStatus) {
             promptStatus = newStatus
             val animateDown = ValueAnimator.ofInt(255, 0)
             animateDown.duration = 300
@@ -130,7 +123,7 @@ class LinearPitchDisplay(context: Context, attrs: AttributeSet) : View(context, 
             }
             animatePosUp.start()
 
-            animateDown.addListener(object: AnimatorListenerAdapter(){
+            animateDown.addListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator?) {
                     super.onAnimationEnd(animation)
                     prompt = newPrompt
@@ -159,15 +152,15 @@ class LinearPitchDisplay(context: Context, attrs: AttributeSet) : View(context, 
         }
     }
 
-    private fun updatePrompt(){
+    private fun updatePrompt() {
         when {
-            currentLineX > width/2f + 20f -> {
+            currentLineX > width / 2f + 20f -> {
                 animatePromptChange("Too high! Tune down", TOO_HIGH)
             }
-            currentLineX < width/2f - 20f && currentLineX > 0 -> {
+            currentLineX < width / 2f - 20f && currentLineX > 0 -> {
                 animatePromptChange("Too low! Tune up", TOO_LOW)
             }
-            currentLineX >= width/2f - 20 && currentLineX <= width/2f + 20 -> {
+            currentLineX >= width / 2f - 20 && currentLineX <= width / 2f + 20 -> {
                 animatePromptChange("You're in tune!", IN_TUNE)
             }
             else -> {
@@ -189,9 +182,9 @@ class LinearPitchDisplay(context: Context, attrs: AttributeSet) : View(context, 
 
     fun updateDisplay(currentFrequency: Float, targetFrequency: Float) {
 
-
-        if (currentFrequency != -1f){
-            cents = (1200 * 3.322038403 * Math.log10((currentFrequency / targetFrequency).toDouble())).roundToInt()
+        if (currentFrequency != -1f) {
+            cents =
+                (1200 * 3.322038403 * Math.log10((currentFrequency / targetFrequency).toDouble())).roundToInt()
             this.frequency = currentFrequency
             this.targetFrequency = targetFrequency
 
@@ -200,7 +193,6 @@ class LinearPitchDisplay(context: Context, attrs: AttributeSet) : View(context, 
 
             val translatedCurFreq = currentFrequency - bottomEnd
             currentLineFutureX = translatedCurFreq * unitLength
-
         } else {
             currentLineFutureX = -50f
         }

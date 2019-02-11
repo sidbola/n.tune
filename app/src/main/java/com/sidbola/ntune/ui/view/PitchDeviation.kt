@@ -23,12 +23,14 @@ class PitchDeviation(context: Context, attrs: AttributeSet) : LinearLayout(conte
 
     fun updateInfo(sensedHertz: Float, targetHertz: Float) {
         if (sensedHertz != -1f) {
-            val cents = (1200 * 3.322038403 * Math.log10((sensedHertz / targetHertz).toDouble())).roundToInt().toString()
+            val cents =
+                (1200 * 3.322038403 * Math.log10((sensedHertz / targetHertz).toDouble())).roundToInt()
+                    .toString()
             sensedHertzTextView.text = sensedHertz.roundToInt().toString() + "Hz"
             centDeviationTextView.text = "$cents ct"
         } else {
             centDeviationTextView.text = ("0 ct")
-            sensedHertzTextView.text = "0 Hz"
+            sensedHertzTextView.text = context.getString(R.string.defaultHertz)
         }
     }
 }

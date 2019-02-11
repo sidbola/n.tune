@@ -21,15 +21,13 @@ class NotesDisplay(context: Context, attrs: AttributeSet) : LinearLayout(context
         tuningNoteInfo = null
         buttonLinearLayout = findViewById(R.id.ll_button_holder)
         hertzTextView = findViewById(R.id.tv_hertz)
-        hertzTextView.text = "0 Hz"
+        hertzTextView.text = context.getString(R.string.defaultHertz)
         buttons = null
         buttonLayoutParams = LinearLayout.LayoutParams(
             LayoutParams.MATCH_PARENT,
             LayoutParams.MATCH_PARENT,
             1f
         )
-
-
     }
 
     private fun setupView() {
@@ -67,7 +65,7 @@ class NotesDisplay(context: Context, attrs: AttributeSet) : LinearLayout(context
             }
         }
 
-        hertzTextView.text = "0 Hz"
+        hertzTextView.text = context.getString(R.string.defaultHertz)
     }
 
     private fun selectNote(noteIndex: Int) {

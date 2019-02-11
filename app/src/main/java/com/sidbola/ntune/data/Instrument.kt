@@ -16,12 +16,30 @@ enum class Instrument {
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(
-                Tuning("Standard", arrayOf(Note.E_2, Note.A_2, Note.D_3, Note.G_3, Note.B_3, Note.E_4)),
-                Tuning("Drop D", arrayOf(Note.D_2, Note.A_2, Note.D_3, Note.G_3, Note.B_3, Note.E_4)),
-                Tuning("Double Drop D", arrayOf(Note.D_2, Note.A_2, Note.D_3, Note.G_3, Note.B_3, Note.D_4)),
-                Tuning("Open D", arrayOf(Note.D_2, Note.A_2, Note.D_3, Note.F_SHARP_3, Note.A_3, Note.D_4)),
-                Tuning("Open G", arrayOf(Note.D_2, Note.G_2, Note.D_3, Note.G_3, Note.B_3, Note.D_4)),
-                Tuning("Modal D", arrayOf(Note.D_2, Note.A_2, Note.D_3, Note.G_3, Note.A_3, Note.D_4))
+                Tuning(
+                    "Standard",
+                    arrayOf(Note.E_2, Note.A_2, Note.D_3, Note.G_3, Note.B_3, Note.E_4)
+                ),
+                Tuning(
+                    "Drop D",
+                    arrayOf(Note.D_2, Note.A_2, Note.D_3, Note.G_3, Note.B_3, Note.E_4)
+                ),
+                Tuning(
+                    "Double Drop D",
+                    arrayOf(Note.D_2, Note.A_2, Note.D_3, Note.G_3, Note.B_3, Note.D_4)
+                ),
+                Tuning(
+                    "Open D",
+                    arrayOf(Note.D_2, Note.A_2, Note.D_3, Note.F_SHARP_3, Note.A_3, Note.D_4)
+                ),
+                Tuning(
+                    "Open G",
+                    arrayOf(Note.D_2, Note.G_2, Note.D_3, Note.G_3, Note.B_3, Note.D_4)
+                ),
+                Tuning(
+                    "Modal D",
+                    arrayOf(Note.D_2, Note.A_2, Note.D_3, Note.G_3, Note.A_3, Note.D_4)
+                )
             )
     },
     // Bass strings are (5th string) B0=30.87Hz, (4th string) E1=41.20Hz, A1=55Hz, D2=73.42Hz, G2=98Hz
@@ -30,7 +48,10 @@ enum class Instrument {
             get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 NTuneApp.getApplicationContext().getDrawable(R.drawable.ic_bass_four)
             } else {
-                ContextCompat.getDrawable(NTuneApp.getApplicationContext(), R.drawable.ic_bass_four)!!
+                ContextCompat.getDrawable(
+                    NTuneApp.getApplicationContext(),
+                    R.drawable.ic_bass_four
+                )!!
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(
@@ -40,6 +61,7 @@ enum class Instrument {
                 Tuning("Drop C", arrayOf(Note.C_1, Note.A_1, Note.D_2, Note.G_2)),
                 Tuning("5-String Type", arrayOf(Note.B_1, Note.E_1, Note.A_2, Note.D_2))
             )
+
         override fun toString(): String {
             return "BASS 4"
         }
@@ -49,12 +71,16 @@ enum class Instrument {
             get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 NTuneApp.getApplicationContext().getDrawable(R.drawable.ic_bass_five)
             } else {
-                ContextCompat.getDrawable(NTuneApp.getApplicationContext(), R.drawable.ic_bass_five)!!
+                ContextCompat.getDrawable(
+                    NTuneApp.getApplicationContext(),
+                    R.drawable.ic_bass_five
+                )!!
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(
                 Tuning("Standard", arrayOf(Note.B_0, Note.E_1, Note.A_1, Note.D_2, Note.G_2))
             )
+
         override fun toString(): String {
             return "BASS 5"
         }
@@ -83,7 +109,10 @@ enum class Instrument {
             get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 NTuneApp.getApplicationContext().getDrawable(R.drawable.ic_mandolin)
             } else {
-                ContextCompat.getDrawable(NTuneApp.getApplicationContext(), R.drawable.ic_mandolin)!!
+                ContextCompat.getDrawable(
+                    NTuneApp.getApplicationContext(),
+                    R.drawable.ic_mandolin
+                )!!
             }
         override val availableTunings: Array<Tuning>
             get() = arrayOf(

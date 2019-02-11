@@ -717,9 +717,9 @@ enum class Note {
     },
     B_9 {
         override val frequency: Float
-        get() = 15805.44f
+            get() = 15805.44f
         override val noteName: String
-        get() = "B"
+            get() = "B"
     };
 
     abstract val noteName: String

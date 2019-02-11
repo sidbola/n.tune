@@ -34,7 +34,7 @@ class CircleButton(context: Context, attrs: AttributeSet?) : Button(context, att
         super.onDraw(canvas)
     }
 
-    constructor(context: Context): this(context, null)
+    constructor(context: Context) : this(context, null)
 
     fun setHighlighted(isHighlighted: Boolean) {
         this.isHighlighted = isHighlighted
